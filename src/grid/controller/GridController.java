@@ -4,42 +4,39 @@ import javax.swing.JOptionPane;
 import grid.model.Phones;
 import grid.view.GridFrame;
 
-public class GridController 
-{
+public class GridController {
 
-private GridFrame appFrame;
-private Phones [][] grid;
+	private GridFrame appFrame;
+	private Phones[][] grid;
 
-public GridController()
-{
-grid = new Phones[6][5];
-fillGrid();
-appFrame = new GridFrame(this);
-}
-
-private void fillGrid()
-{
-	for (int row = 0; row < grid.length; row++)
-			{
-		for (int col = 0; col < grid[0].length; col++)
-		{
-			grid[row][col] = new Phones();
-		}
-			}
-}
-
-	public void start()
-	{
-		JOptionPane.showMessageDialog(appFrame,  "HI YOU LITTLE");
+	public GridController() {
+		grid = new Phones[6][5];
+		fillGrid();
+		appFrame = new GridFrame(this);
 	}
-	
-	public Phones[][] getGrid()
-	{
+
+	private void fillGrid() {
+		for (int row = 0; row < grid.length; row++) {
+			for (int col = 0; col < grid[0].length; col++) {
+				grid[row][col] = new Phones();
+			}
+		}
+	}
+
+	public void start() {
+		JOptionPane.showMessageDialog(appFrame, "HI YOU LITTLE");
+	}
+
+	public Phones[][] getGrid() {
 		return grid;
 	}
-	
-	public GridFrame getFrame()
-	{
+
+	public GridFrame getFrame() {
 		return appFrame;
+	}
+	
+	public void changePhone(int row, int col, String model)
+	{
+		grid[row][col].setModel(model);
 	}
 }
